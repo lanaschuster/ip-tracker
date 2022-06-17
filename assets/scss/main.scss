@@ -1,5 +1,21 @@
-@import './variables.scss';
+@import './_variables.scss';
 
-* {
+body {
   font-family: $font-family;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.main-title {
+  padding: 0;
+  margin: 0;
+  font-size: 2rem;
+  font-weight: $font-weight-semibold;
+}
+.light-text {
+  color: $color-light;
+}
+.dark-text {
+  color: $color-dark;
 }
