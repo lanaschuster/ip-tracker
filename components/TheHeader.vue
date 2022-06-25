@@ -1,7 +1,7 @@
 <template>
   <header class="search-bar-header">
     <LargeTitle>IP Address Tracker</LargeTitle>
-    <SearchInput />
+    <SearchInput @search="search" />
     <TheLocationCard :items="items" class="location-card" />
   </header>
 </template>
@@ -10,25 +10,53 @@
 export default {
   data() {
     return {
-      items: [
+      ipAddress: '--',
+      location: '--',
+      timezone: '--',
+      isp: '--',
+      lng: '',
+      lat: '',
+    }
+  },
+  computed: {
+    items() {
+      return [
         {
           title: 'ip address',
-          content: '192.168.120.1',
+          content: this.ipAddress,
         },
         {
           title: 'location',
-          content: 'Foz do Iguaçu, PR, 1230',
+          content: this.location,
         },
         {
           title: 'timezone',
-          content: 'UTC-05:00',
+          content: this.timezone,
         },
         {
           title: 'isp',
-          content: 'TelecomFoz',
+          content: this.isp,
         },
-      ],
-    }
+      ]
+    },
+  },
+  methods: {
+    search(query) {
+      const url = `${process.env.IP_API_URL}country,city?apiKey=${process.env.IP_API_KEY}&ipAddress=${query}`
+      this.$axios
+        .get(url)
+        .then((result) => {
+          this.ipAddress = result.data.ip
+          this.location = `${result.data.location.country}, ${result.data.location.city}, ${result.data.location.region}`
+          this.timezone = result.data.location.timezone
+          this.isp = result.data.isp
+          this.lng = result.data.location.lng
+          this.lat = result.data.location.lat
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
   },
 }
 </script>

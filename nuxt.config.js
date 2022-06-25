@@ -50,4 +50,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  env: {
+    IP_API_URL: process.env.IP_API_URL,
+    IP_API_KEY: process.env.IP_API_KEY,
+  },
 }

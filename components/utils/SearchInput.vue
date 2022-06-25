@@ -1,11 +1,25 @@
 <template>
   <div class="search-input">
-    <input type="text" placeholder="Search for any IP address or domain" />
-    <button title="Search">
+    <input
+      v-model="query"
+      type="text"
+      placeholder="Search for any IP address or domain"
+    />
+    <button title="Search" @click="$emit('search', query)">
       <img src="~/assets/images/icon-arrow.svg" alt="Search" />
     </button>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      query: '',
+    }
+  },
+}
+</script>
 
 <style lang="scss" scoped>
 @import '~/assets/scss/_variables.scss';
