@@ -20,7 +20,7 @@
     font-family: $font-family;
     padding: 1rem 2rem;
     outline: none;
-    border-radius: 1rem 0 0 1rem;
+    border-radius: $border-radius 0 0 $border-radius;
     width: 448px;
     border: none;
   }
@@ -29,7 +29,7 @@
     cursor: pointer;
     padding: 1rem 2rem;
     background: $color-dark;
-    border-radius: 0 1rem 1rem 0;
+    border-radius: 0 $border-radius $border-radius 0;
 
     &:hover {
       background: $color-very-dark-gray;

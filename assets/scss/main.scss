@@ -19,3 +19,17 @@ body {
 .dark-text {
   color: $color-dark;
 }
+
+.card-title {
+  font-size: 12px;
+  color: $color-dark-gray;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: $font-weight-bold;
+}
+
+@media screen and (max-width: 768px) {
+  .main-title {
+    font-size: 1.6rem;
+  }
+}
