@@ -1,5 +1,5 @@
 <template>
-  <CardContainer>
+  <CardContainer class="location-card">
     <div class="content">
       <div
         v-for="(item, i) in items"
@@ -25,6 +25,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.location-card {
+  z-index: 1000;
+}
 .content {
   display: flex;
   padding: 2rem 1rem;
@@ -35,7 +38,7 @@ export default {
   padding: 1rem 2rem;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1124px) {
   .content {
     display: flex;
     flex-direction: column;

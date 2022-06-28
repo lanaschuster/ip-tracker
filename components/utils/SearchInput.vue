@@ -13,9 +13,21 @@
 
 <script>
 export default {
+  props: {
+    defaultQuery: {
+      type: String,
+      default: '',
+    },
+  },
   data() {
     return {
       query: '',
+    }
+  },
+  mounted() {
+    if (this.defaultQuery) {
+      this.query = this.defaultQuery
+      this.$emit('search', this.query)
     }
   },
 }
