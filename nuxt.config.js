@@ -13,6 +13,9 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
+  ssr: true,
+
+  target: 'server',
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['~/assets/scss/main.scss'],
@@ -55,5 +58,9 @@ export default {
   env: {
     IP_API_URL: process.env.IP_API_URL,
     IP_API_KEY: process.env.IP_API_KEY,
+  },
+
+  serverMiddleware: {
+    '/server': '~/server',
   },
 }

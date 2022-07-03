@@ -42,20 +42,21 @@ export default {
   },
   methods: {
     search(query) {
-      const url = `${process.env.IP_API_URL}country,city?apiKey=${process.env.IP_API_KEY}&ipAddress=${query}`
+      const url = `/server/ip-location?address=${query}`
       this.$axios
         .get(url)
         .then((result) => {
-          this.ipAddress = result.data.ip
-          this.location = `${result.data.location.country}, ${result.data.location.city}, ${result.data.location.region}`
-          this.timezone = result.data.location.timezone
+          this.ipAddress = result.data.ipAddress
+          this.location = result.data.location
+          this.timezone = result.data.timezone
           this.isp = result.data.isp
-          this.lng = result.data.location.lng
-          this.lat = result.data.location.lat
+          this.lng = result.data.lng
+          this.lat = result.data.lat
 
           this.$emit('coordinates', { lat: this.lat, lng: this.lng })
         })
         .catch((error) => {
+          // eslint-disable-next-line no-console
           console.log(error)
         })
     },
