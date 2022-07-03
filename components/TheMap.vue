@@ -5,7 +5,9 @@
         <l-tile-layer
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
         ></l-tile-layer>
-        <l-marker :lat-lng="[lat, lng]"></l-marker>
+        <l-marker :lat-lng="[lat, lng]">
+          <l-icon :icon-url="icon" />
+        </l-marker>
       </l-map>
     </client-only>
   </div>
@@ -21,6 +23,11 @@ export default {
     lat: {
       type: [String, Number],
       required: true,
+    },
+  },
+  computed: {
+    icon() {
+      return require('~/assets/images/icon-location.svg')
     },
   },
 }
