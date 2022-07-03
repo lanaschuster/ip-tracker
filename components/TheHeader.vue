@@ -82,7 +82,13 @@ export default {
   bottom: -100px;
 }
 
-@media screen and (max-width: 1124px) {
+@media screen and (min-width: 1024px) and (max-width: 1124px) {
+  .location-card {
+    bottom: -140px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
   .search-bar-header {
     padding: 2rem;
     justify-content: flex-start;

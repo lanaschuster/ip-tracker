@@ -38,7 +38,10 @@ export default {
   padding: 1rem 2rem;
 }
 
-@media screen and (max-width: 1124px) {
+@media screen and (max-width: 1024px) {
+  .location-card {
+    max-width: 352px;
+  }
   .content {
     display: flex;
     flex-direction: column;
